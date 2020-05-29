@@ -1,16 +1,36 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
+import { Router, RouterModule } from '@angular/router'
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { LoginComponent } from './userauth/login/login.component';
+import { ToastrModule } from 'ngx-toastr';
+import { UserlistComponent } from './dashboard/userlist/userlist.component';
+import {HttpClient,HttpClientModule} from '@angular/common/http'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { FormsModule } from '@angular/forms';
+import { Angular2CsvModule } from 'angular2-csv';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    UserlistComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    Angular2CsvModule,
+    Ng2SearchPipeModule,
+    BrowserAnimationsModule,
+    RouterModule.forRoot([
+      { path: 'userlist', component: UserlistComponent },
+      { path: '', redirectTo: 'userlist', pathMatch: 'full' }
+    ]),
+    ToastrModule.forRoot(),
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

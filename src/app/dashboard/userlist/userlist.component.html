@@ -1,0 +1,57 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" [routerLink]="['merchantdata']">Merchant Info <span
+                            class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="form-group pd">
+        <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+        <div class="pd">
+            <button type="button" class="btn btn-outline-primary" (click)="getUserData()">Get list in table</button>
+            <span class="pd">
+                Click on the download button to download csv
+            </span>
+            <!-- <button type="button" class="btn btn-outline-success" type="button" >Download csv</button> -->
+            <angular2csv *ngIf="this.data" [data]="this.data" filename="test.csv" [options]="options"></angular2csv>
+        </div>
+
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Category</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Shop Name</th>
+                    <th scope="col">Mobile Number</th>
+                    <th scope="col">Name</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let i of this.data.slice(0, 10)"> -->
+                <tr *ngFor="let i of this.data | filter:term">
+                    <th scope="row">{{i.category}}</th>
+                    <td>{{i.city}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.shopname}}</td>
+                    <td>{{i.mobilenumber}}</td>
+                    <td>{{i.fullname}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
