@@ -6,12 +6,12 @@ import { ToastrModule } from 'ngx-toastr';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
-import { MerchantdataComponent } from './merchantdata/merchantdata.component';
 import { Angular2CsvModule } from 'angular2-csv';
+import { MerchantComponent } from './merchant/merchant.component';
 
 
 @NgModule({
-  declarations: [UserlistComponent, MerchantdataComponent],
+  declarations: [UserlistComponent, MerchantComponent],
   imports: [
     CommonModule,
     FormsModule,
@@ -19,7 +19,8 @@ import { Angular2CsvModule } from 'angular2-csv';
     Angular2CsvModule,
     BrowserAnimationsModule,
     RouterModule.forChild([
-      { path: 'merchantdata', component: MerchantdataComponent}
+       { path: 'userlist', component: UserlistComponent },
+      { path: 'merchant', component: MerchantComponent }
     ]),
     ToastrModule.forRoot()
   ]

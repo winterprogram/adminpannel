@@ -3,6 +3,8 @@ import { ToastrService } from 'ngx-toastr';
 import { HttpService } from './../../http.service';
 import { HttpClient } from '@angular/common/http';
 import { Angular2CsvService } from 'angular2-csv';
+import { Router, ActivatedRoute } from '@angular/router';
+
 
 @Component({
   selector: 'app-userlist',
@@ -28,7 +30,10 @@ export class UserlistComponent implements OnInit {
   constructor(private toaster: ToastrService,
     private httpservice: HttpService,
     private _httpClient: HttpClient,
-    private Angular2CsvService: Angular2CsvService) { }
+    private Angular2CsvService: Angular2CsvService,
+    public router: Router,
+    public route: ActivatedRoute,
+) { }
 
   ngOnInit(): void {
   }
@@ -46,5 +51,8 @@ export class UserlistComponent implements OnInit {
     })
   }
 
+  public goToMerchantSection(){
+    this.router.navigate(['/userlist/merchantdata'])
+  }
 
 }

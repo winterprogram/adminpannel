@@ -6,17 +6,19 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './userauth/login/login.component';
 import { ToastrModule } from 'ngx-toastr';
 import { UserlistComponent } from './dashboard/userlist/userlist.component';
-import {HttpClient,HttpClientModule} from '@angular/common/http'
+import { HttpClient, HttpClientModule } from '@angular/common/http'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 import { Angular2CsvModule } from 'angular2-csv';
+import { MerchantComponent } from './dashboard/merchant/merchant.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserlistComponent
+    UserlistComponent,
+    MerchantComponent
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { Angular2CsvModule } from 'angular2-csv';
     BrowserAnimationsModule,
     RouterModule.forRoot([
       { path: 'userlist', component: UserlistComponent },
-      { path: '', redirectTo: 'userlist', pathMatch: 'full' }
+      { path: '', redirectTo: 'userlist', pathMatch: 'full' },
+      { path: 'merchant', component: MerchantComponent }
     ]),
     ToastrModule.forRoot(),
     HttpClientModule

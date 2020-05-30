@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { MerchantdataComponent } from './merchantdata.component';
+import { MerchantComponent } from './merchant.component';
 
-describe('MerchantdataComponent', () => {
-  let component: MerchantdataComponent;
-  let fixture: ComponentFixture<MerchantdataComponent>;
+describe('MerchantComponent', () => {
+  let component: MerchantComponent;
+  let fixture: ComponentFixture<MerchantComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ MerchantdataComponent ]
+      declarations: [ MerchantComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(MerchantdataComponent);
+    fixture = TestBed.createComponent(MerchantComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
