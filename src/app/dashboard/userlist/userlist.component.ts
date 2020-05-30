@@ -41,7 +41,7 @@ export class UserlistComponent implements OnInit {
     this.httpservice.getMerchantData().subscribe((apiData) => {
       if (apiData.status == 200) {
         this.data = apiData.data
-        console.log(this.data)
+        // console.log(this.data)
         this.toaster.success('Data Fetched')
       } else {
         this.toaster.error(`${apiData.message} status ${apiData.status}`)

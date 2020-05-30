@@ -19,8 +19,8 @@ import { MerchantComponent } from './merchant/merchant.component';
     Angular2CsvModule,
     BrowserAnimationsModule,
     RouterModule.forChild([
-       { path: 'userlist', component: UserlistComponent },
-      { path: 'merchant', component: MerchantComponent }
+       { path: 'merchant', component: UserlistComponent },
+      { path: 'userlist', component: MerchantComponent }
     ]),
     ToastrModule.forRoot()
   ]

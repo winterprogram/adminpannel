@@ -1,1 +1,64 @@
-<p>merchant works!</p>
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">Navbar</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" [routerLink]="['/userlist']">User Info <span
+                            class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <div class="form-group pd">
+        <input type="text" class="form-control" placeholder="Search Here" [(ngModel)]="term">
+        <div class="pd" *ngIf="this.userdata">
+            <span class="pd">
+                Click on the download button to download csv
+            </span>
+            <angular2csv [data]="this.userdata" filename="test.csv" [options]="options"></angular2csv>
+        </div>
+
+        <button type="button" class="btn btn-outline-primary" (click)="getuserData()">Get list in table</button>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">User Id</th>
+                    <th scope="col">Full Name</th>
+                    <th scope="col">Mobile Number</th>
+                    <th scope="col-2">Category Selected</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">City</th>
+                    <th scope="col">Zipcode</th>
+                    <th scope="col">Gender</th>
+                    <th scope="col">Dob</th>
+                    <th scope="col">Valid</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- <tr *ngFor="let i of this.data.slice(0, 10)"> -->
+                <tr *ngFor="let i of this.userdata | filter:term">
+                    <!-- <th >{{i.category}}</th> -->
+                    <td scope="row">{{i.userid}}</td>
+                    <td>{{i.fullname}}</td>
+                    <td>{{i.mobilenumber}}</td>
+                    <td>{{i.categoryselected}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.city}}</td>
+                    <td>{{i.zipcode}}</td>
+                    <td>{{i.gender}}</td>
+                    <td>{{i.dob}}</td>
+                    <td>{{i.valid}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>

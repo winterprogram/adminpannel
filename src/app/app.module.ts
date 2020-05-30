@@ -28,9 +28,9 @@ import { MerchantComponent } from './dashboard/merchant/merchant.component';
     Ng2SearchPipeModule,
     BrowserAnimationsModule,
     RouterModule.forRoot([
-      { path: 'userlist', component: UserlistComponent },
-      { path: '', redirectTo: 'userlist', pathMatch: 'full' },
-      { path: 'merchant', component: MerchantComponent }
+      { path: 'merchant', component: UserlistComponent },
+      { path: '', redirectTo: 'merchant', pathMatch: 'full' },
+      { path: 'userlist', component: MerchantComponent }
     ]),
     ToastrModule.forRoot(),
     HttpClientModule

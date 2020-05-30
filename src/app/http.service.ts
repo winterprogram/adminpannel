@@ -15,4 +15,8 @@ export class HttpService {
   public getMerchantData(): Observable<any> {
     return this.http.get(`${this.url}/getmerchantinfo`)
   }
+
+  public getUserData():Observable<any>{
+    return this.http.get(`${this.url}/getuserData`)
+  }
 }
